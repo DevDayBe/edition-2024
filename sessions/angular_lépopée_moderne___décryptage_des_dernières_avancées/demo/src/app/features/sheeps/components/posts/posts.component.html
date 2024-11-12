@@ -1,0 +1,13 @@
+@for(post of posts(); track post.id){
+    <mat-card class="sheep-detail-card">
+        <mat-card-header>
+            <h3>{{post.title}}</h3>
+        </mat-card-header>
+        <mat-card-content>
+            {{post.content}}
+        </mat-card-content>
+        <mat-card-footer>
+            {{post.date}}
+        </mat-card-footer>
+    </mat-card>
+}

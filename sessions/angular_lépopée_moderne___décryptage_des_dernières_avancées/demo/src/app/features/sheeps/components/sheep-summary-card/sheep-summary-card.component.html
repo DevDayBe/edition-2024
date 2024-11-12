@@ -1,0 +1,12 @@
+<mat-card class="sheep-card">
+    <img mat-card-image [ngSrc]="sheep().imageUrl" [width]="400" [height]="200" alt="{{ sheep().name }}" />
+    <mat-card-title>{{ sheep().name }}</mat-card-title>
+    <mat-card-actions>
+        <button mat-icon-button (click)="like()">
+            <mat-icon [matBadge]="likeCount()">favorite</mat-icon>
+        </button>
+        <a mat-icon-button [routerLink]="'./'+sheep().id">
+            <mat-icon>visibility</mat-icon>
+        </a>
+    </mat-card-actions>
+</mat-card>

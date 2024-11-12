@@ -1,0 +1,13 @@
+{
+  "id": 1,
+  "name": "Rocky Baalboa",
+  "age": 5,
+  "breed": "Dorset",
+  "woolColor": "White",
+  "isSheared": false,
+  "weight": 85,
+  "healthStatus": "Healthy",
+  "imageUrl": "./assets/images/rocky.webp",
+  "description": "Rocky Baalboa is a tough and determined sheep, known for his incredible resilience and stamina. He grew up on the rugged hills, where he learned to face every challenge head-on, never backing down from a fight. Whether it’s braving the cold winters or leading his flock, Rocky is always at the front, inspiring others with his grit and determination. His muscular build and powerful stride make him a natural leader among the flock, and he’s well-respected by both sheep and shepherd alike.\n\nAlthough he may seem rough on the outside, Rocky has a softer side too. He enjoys peaceful moments grazing in the fields, and despite his strength, he’s a gentle giant when it comes to his companions. His thick, white wool is as iconic as his tenacity, and though he’s not sheared often, his coat is a prized possession when he does. Rocky may be a fighter, but he’s also a protector, always watching out for those around him.",
+  "temperament": "Aggressive"
+}

@@ -1,0 +1,13 @@
+{
+  "id": 2,
+  "name": "Anne HathaWool",
+  "age": 4,
+  "breed": "Merino",
+  "woolColor": "Cream",
+  "isSheared": true,
+  "weight": 72,
+  "healthStatus": "Healthy",
+  "imageUrl": "./assets/images/anne.webp",
+  "description": "Anne HathaWool is the epitome of elegance and grace among the sheep. Her Merino breed is known for producing some of the finest wool in the world, and Anne lives up to that reputation with her beautifully soft, cream-colored fleece. She moves with a regal air, always composed and sophisticated, making her the center of attention wherever she grazes. Despite her refined demeanor, Anne is warm and approachable, often found nurturing younger lambs in the flock with motherly care.\n\nAnne's wool is highly sought after, and she’s become something of a celebrity in the shearing season, with her fleece fetching top prices at market. She takes her grooming seriously, and even after being sheared, she maintains a stunning appearance. Anne HathaWool is not only beautiful but also a symbol of tradition, with her Merino heritage linking her to centuries of wool craftsmanship.",
+  "temperament": "Calm"
+}

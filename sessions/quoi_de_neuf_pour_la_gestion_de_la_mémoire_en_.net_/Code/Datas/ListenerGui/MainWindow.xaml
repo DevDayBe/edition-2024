@@ -1,0 +1,91 @@
+﻿<Window x:Class="ListenerGui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ListenerGui"
+        mc:Ignorable="d"
+        Title="GC Regions" Height="800" Width="1600" Loaded="Window_Loaded" Closing="Window_Closing"
+        PreviewKeyDown="Window_PreviewKeyDown">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="200" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="5 5 5 5" TextBlock.FontSize="16">
+            <Menu Background="Transparent" Margin="0 -1 0 0" >
+                <MenuItem FontSize="16"  VerticalAlignment="Center"  VerticalContentAlignment="Center">
+                    <MenuItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Process: " />
+                            <TextBlock x:Name="TextPid" />
+                        </StackPanel>
+                    </MenuItem.Header>
+                    <MenuItem Header="_Open" Click="MenuOpen_Click" />
+                    <MenuItem Header="_Save as" Click="MenuSave_Click" />
+                    <MenuItem Header="_Quit" Click="MenuQuit_Click" />
+                </MenuItem>
+            </Menu>
+            <TextBlock Text="Private bytes: " Margin="20 0 0 0" />
+            <TextBlock x:Name="TextPrivateBytes" />
+            <TextBlock Text="Heaps: " Margin="20 0 0 0" />
+            <TextBlock x:Name="TextNbHeaps" />
+            <TextBlock Text="Throughput cost: " Margin="20 0 0 0" />
+            <TextBlock x:Name="TextThroughputCost" />
+            <TextBlock Text="Size: " Margin="20 0 0 0" />
+            <RadioButton x:Name="RadioReal" Margin="5 0 0 0" GroupName="Size" IsChecked="True" Content="Real" VerticalContentAlignment="Center" Checked="RadioReal_Checked" />
+            <RadioButton x:Name="RadioCommitted" Margin="5 0 0 0" GroupName="Size" IsChecked="False" Content="Committed" VerticalContentAlignment="Center" Checked="RadioCommitted_Checked" />
+            <RadioButton x:Name="RadioLogical" Margin="5 0 0 0" GroupName="Size" IsChecked="False" Content="Logical" VerticalContentAlignment="Center" Checked="RadioLogical_Checked"  />
+            <CheckBox x:Name="ToggleEmpty" Content="Show empty memory" Margin="20 0 0 0" Padding="5 0 5 0" IsChecked="False" Click="ToggleEmpty_Click" VerticalContentAlignment="Center" />
+            <CheckBox x:Name="ToggleTiles" Content="Tiled view" Margin="20 0 0 0" Padding="5 0 5 0" IsChecked="False" Click="ToggleTiles_Click" VerticalContentAlignment="Center" />
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1" Grid.Column="0" VerticalScrollBarVisibility="Auto">
+            <WrapPanel x:Name="PanelRegions" Orientation="Horizontal" Grid.Row="1" Grid.Column="0" />
+        </ScrollViewer>
+        <StackPanel x:Name="PanelHeaps" Grid.Row="1" Grid.Column="0">
+        </StackPanel>
+
+        <local:RegionsGrid x:Name="RegionsGrid" Grid.Row="1" Grid.Column="0" />
+
+        <GridSplitter Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="5" />
+
+        <ListView x:Name="ListGc" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Path=GCs}" d:ItemsSource="{d:SampleData ItemCount=3}"  >
+            <ListView.ItemTemplate>
+                <ItemContainerTemplate>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=Number, StringFormat='#{0} '}" />
+                            <TextBlock Text="{Binding Path=Type}" FontWeight="Bold" />
+                            <TextBlock Text="{Binding Path=Generation, StringFormat=' ({0})'}" FontWeight="Bold" />
+                        </StackPanel>
+                        <TextBlock Text="{Binding Path=Reason}" />
+                    </StackPanel>
+                </ItemContainerTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5 0 5 0">
+                <Button x:Name="ButtonPlay" Content="⏸" Foreground="DarkBlue" Width="30" Click="ButtonPlay_Click" />
+                <TextBox x:Name="TextStep" Text="0 / 0" IsReadOnly="True" Width="60" TextAlignment="Center"/>
+                <ScrollBar x:Name="ScrollFrames" Orientation="Horizontal" Width="400" Minimum="0" Maximum="0" SmallChange="1" LargeChange="10" ValueChanged="ScrollFrames_ValueChanged" />
+            </StackPanel>
+
+            <WrapPanel x:Name="PanelLegend" Grid.Row="0" Grid.Column="1" TextBlock.FontSize="14">
+            </WrapPanel>
+        </Grid>
+
+    </Grid>
+</Window>

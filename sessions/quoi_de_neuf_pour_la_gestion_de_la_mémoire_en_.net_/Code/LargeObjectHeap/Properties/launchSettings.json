@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "LargeObjectHeap": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_GCLOHThreshold": "19000"
+      }
+    }
+  }
+}

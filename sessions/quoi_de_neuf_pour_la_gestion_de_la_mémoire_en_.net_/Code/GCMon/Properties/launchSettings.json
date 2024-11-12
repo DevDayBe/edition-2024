@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "GCMon": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_gcServer": "0"
+      }
+    }
+  }
+}

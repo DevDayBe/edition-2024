@@ -1,0 +1,31 @@
+<mat-toolbar [color]="">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Wool of Fame</span>
+  <span class="example-spacer"></span>
+  <mat-form-field class="example-form-field">
+    <mat-label>Filter</mat-label>
+    <input matInput type="text" [(ngModel)]="searchValue">
+    @if (searchValue()) {
+      <button matSuffix mat-icon-button aria-label="Clear" (click)="searchValue.set('')">
+        <mat-icon>close</mat-icon>
+      </button>
+    }
+  </mat-form-field>
+  <button mat-icon-button (click)="openSheepForm()">
+    <mat-icon>add</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="sheep-grid">
+  @for(sheep of filteredList(); track sheep.id){
+    <app-sheep-summary-card [sheep]="sheep" [(likeCount)]="like"/>
+  } @empty {
+    <p>Aucun mouton trouvé</p>
+  }
+</div>
+
+<ng-template #noSheep>
+    <p>No sheep found.</p>
+</ng-template>

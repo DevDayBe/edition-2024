@@ -1,0 +1,13 @@
+{
+  "id": 3,
+  "name": "Lady Baabaa",
+  "age": 3,
+  "breed": "Suffolk",
+  "woolColor": "Black and White",
+  "isSheared": false,
+  "weight": 78,
+  "healthStatus": "Healthy",
+  "imageUrl": "./assets/images/baba.webp",
+  "description": "Lady Baabaa is known for her distinct, stylish appearance, with her black-and-white Suffolk fleece making her stand out in any field. She’s the fashion icon of the flock, always impeccably groomed and never missing a chance to show off her chic look. Lady Baabaa is proud of her heritage, hailing from a long line of Suffolk sheep known for their striking wool patterns and strong build. Her playful nature and love for attention make her a favorite among visitors to the farm, where she’s often the star of the show.\n\nDespite her love for the spotlight, Lady Baabaa is more than just looks. She’s intelligent and resourceful, often leading her companions to the best grazing spots. Her strong Suffolk roots give her an edge in both appearance and durability, allowing her to thrive in various conditions. Lady Baabaa is the perfect mix of beauty and brains, always ready for the next adventure in style.",
+  "temperament": "Playful"
+}

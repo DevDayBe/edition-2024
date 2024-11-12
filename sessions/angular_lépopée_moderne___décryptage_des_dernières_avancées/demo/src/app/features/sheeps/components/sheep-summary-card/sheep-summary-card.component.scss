@@ -1,0 +1,31 @@
+.sheep-card {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin: 16px;
+  transition: box-shadow 0.3s ease-in-out;
+  box-shadow: 0 8px 16px rgba(128, 0, 128, 0.7), /* More visible purple shadow */
+  0 8px 16px rgba(255, 165, 0, 0.5); /* More visible orange shadow */
+
+  &:hover {
+    box-shadow: 0 12px 24px rgba(128, 0, 128, 0.9), /* Even stronger purple on hover */
+    0 12px 24px rgba(255, 165, 0, 0.7); /* Stronger orange on hover */
+    transform: scale(1.02);
+  }
+}
+
+img {
+  height: 400px;
+  object-fit: cover;
+}
+mat-card-title{
+  text-align: center;
+}
+
+.mat-mdc-icon-button{
+
+  &:hover {
+    transform: scale(1.1);
+    color: rgba(128, 0, 128, 0.9);
+  }
+}

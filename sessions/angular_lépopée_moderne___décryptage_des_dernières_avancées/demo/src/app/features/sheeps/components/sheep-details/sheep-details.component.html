@@ -1,0 +1,67 @@
+<mat-card class="sheep-detail-card">
+  <div class="sheep-container">
+    <div class="sheep-image">
+      @if (image.isLoading()) {
+        Loading...
+      } @else if (image.error()) {
+        <img [src]="sheep.imageUrl" alt="{{ sheep.name }}"/>
+      } @else {
+        <img [src]="image.value()" alt="{{ sheep.name }}"/>
+      }
+    </div>
+  </div>
+</mat-card>
+<mat-card class="sheep-detail-card">
+  <mat-card-header>
+    <h2>{{ sheep.name }}</h2>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="temperament">
+      @let temp = sheep.temperament ;
+      <mat-icon>
+        @switch (temp) {
+          @case ('Calm') {
+            self_improvement
+          }
+          @case ('Aggressive') {
+            local_fire_department
+          }
+          @default {
+            gamepad
+          }
+        }
+      </mat-icon>
+      {{ temp }}
+    </div>
+    <p><strong>Age:</strong> {{ sheep.age }} years</p>
+    <p><strong>Breed:</strong> {{ sheep.breed }}</p>
+    <p><strong>Wool Color:</strong> {{ sheep.woolColor }}</p>
+    <p><strong>Sheared:</strong> {{ sheep.isSheared ? 'Yes' : 'No' }}</p>
+    <p><strong>Weight:</strong> {{ sheep.weight }} kg</p>
+    <p *ngIf="sheep.healthStatus"><strong>Health Status:</strong> {{ sheep.healthStatus }}</p>
+
+  </mat-card-content>
+</mat-card>
+@if (sheep.description) {
+  <mat-card class="sheep-detail-card">
+    <mat-card-header>
+      <h2>Description</h2>
+    </mat-card-header>
+    <mat-card-content>
+      {{ sheep.description }}
+    </mat-card-content>
+  </mat-card>
+}
+@defer (on timer(3s)) {
+  <app-posts [id]="sheep.id"/>
+} @placeholder (minimum 2s) {
+  <app-posts-placeholder/>
+} @loading (minimum 5s) {
+  <app-posts-loading/>
+} @error {
+  <mat-card class="sheep-detail-card">
+    <mat-card-header>
+      An error occurred
+    </mat-card-header>
+  </mat-card>
+}

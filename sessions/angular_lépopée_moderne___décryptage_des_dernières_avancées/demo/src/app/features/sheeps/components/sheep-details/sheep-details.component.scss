@@ -1,0 +1,46 @@
+.sheep-detail-card {
+  margin: 16px;
+  padding: 16px;
+}
+
+.sheep-container {
+  display: flex;
+  align-items: flex-start; /* Align items at the start for top alignment */
+}
+
+.sheep-image-container {
+  flex: 1;
+  max-width: 220px;
+  margin-right: 24px;
+  padding: 16px;
+  background-color: #f5f5f5; /* Light background to separate the image */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for separation */
+
+}
+.sheep-image > img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  max-height: 500px;
+  max-width: 500px;
+}
+
+.sheep-details {
+  flex: 2;
+}
+
+.sheep-details h2 {
+  margin-top: 0;
+}
+
+.sheep-details p {
+  margin: 4px 0;
+}
+
+.temperament{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,13 @@
+{
+  "id": 5,
+  "name": "Ewe'n McGregor",
+  "age": 6,
+  "breed": "Texel",
+  "woolColor": "White",
+  "isSheared": false,
+  "weight": 90,
+  "healthStatus": "Minor Injury (Healing)",
+  "imageUrl": "./assets/images/ewan.webp",
+  "description": "Ewe'n McGregor is the bold adventurer of the flock, always up for a challenge and never afraid to explore new terrain. His Texel heritage gives him a strong, muscular build, and he’s known for his bravery in leading the flock through difficult terrain. Ewe'n recently suffered a minor injury while scaling a rocky hillside, but true to his nature, he’s recovering quickly and is eager to get back to his daring escapades. His pristine white wool reflects his noble spirit, standing out against the rugged landscapes he loves to traverse.\n\nThough he’s often seen at the front of the flock, guiding them with confidence, Ewe'n also has a softer side. He enjoys moments of rest, reflecting on his journeys and planning his next great adventure. His presence is reassuring to the other sheep, who know they’re in good hands with Ewe'n watching over them. As he heals, he’s already dreaming of his next expedition into uncharted pastures.",
+  "temperament": "Aggressive"
+}

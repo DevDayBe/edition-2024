@@ -1,0 +1,13 @@
+{
+  "id": 4,
+  "name": "Ed Shear-an",
+  "age": 2,
+  "breed": "Cheviot",
+  "woolColor": "Reddish Brown",
+  "isSheared": true,
+  "weight": 70,
+  "healthStatus": "Healthy",
+  "imageUrl": "./assets/images/ed.webp",
+  "description": "Ed Shear-an is a gentle and creative soul, known for his reddish-brown Cheviot fleece that has a natural warmth and vibrancy. His fleece is as distinctive as his personality, full of charm and appeal. Ed is a bit of a daydreamer, often found wandering the fields humming to himself, lost in his own world of melodies and stories. Though young, he has an old soul and enjoys the simple pleasures of life, like grazing under the shade of a tree or watching the sunset over the hills.\n\nDespite his relaxed demeanor, Ed Shear-an takes shearing season seriously, as his fleece is highly prized for its rich color and quality. He’s become a favorite among shearers, who appreciate both his cooperative nature and the beauty of his wool. Ed might be quiet, but his presence in the flock is undeniable, bringing a sense of calm and creativity wherever he goes.",
+  "temperament": "Curious"
+}

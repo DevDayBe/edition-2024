@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34205.153
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplicationForPinning", "WebApplicationForPinning.csproj", "{B33E87C3-8004-4B13-8EAB-9E8A031122CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B33E87C3-8004-4B13-8EAB-9E8A031122CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B33E87C3-8004-4B13-8EAB-9E8A031122CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B33E87C3-8004-4B13-8EAB-9E8A031122CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B33E87C3-8004-4B13-8EAB-9E8A031122CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {157698A6-B3D5-49BC-9E35-F72EE4196F24}
+	EndGlobalSection
+EndGlobal

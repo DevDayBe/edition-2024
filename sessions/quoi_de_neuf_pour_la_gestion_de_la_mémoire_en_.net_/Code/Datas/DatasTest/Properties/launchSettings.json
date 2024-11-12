@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "DatasTest": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_GCDynamicAdaptationMode": "1",
+        "DOTNET_GCConserveMemory": "9",
+        // "DOTNET_GCName": "clrgc.dll",
+        //"DOTNET_GCHeapCount": "12"
+      }
+    }
+  }
+}

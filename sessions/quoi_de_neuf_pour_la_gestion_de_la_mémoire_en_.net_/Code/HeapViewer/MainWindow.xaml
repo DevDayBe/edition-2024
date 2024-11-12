@@ -1,0 +1,141 @@
+﻿<Window x:Class="HeapViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HeapViewer"
+        mc:Ignorable="d"
+        Title=".NET Heap Viewer" Height="900" Width="660" Icon="/GCMemory.png">
+    <Window.Resources>
+        <local:GCSegmentKindToBrushConverter x:Key="GCSegmentKindToBrushConverter" LOHBrush="LightGreen" POHBrush="Red" Gen0Brush="Aqua" Gen1Brush="LightBlue" Gen2Brush="CornflowerBlue"/>
+        <DataTemplate x:Key="HeapSegmentTemplate">
+            <Border Margin="2" BorderBrush="Black"
+                 Height="20" BorderThickness="1" CornerRadius="1"
+                 >
+                <Grid Height="16">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60" />
+                        <ColumnDefinition Width="{Binding ControlWidth}" />
+                        <ColumnDefinition Width="{Binding EmptyColumnWidth}" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="{Binding ShortKind}" Foreground="{Binding Path=Kind, Converter={StaticResource GCSegmentKindToBrushConverter}}" Margin="0,0,5,0"/>
+                    <local:GcSegmentControl Grid.Column="1" Background="SteelBlue"
+                        PinnedObjects="{Binding PinnedAddresses}"
+                        FreeBlocks="{Binding FreeBlocks}"
+                        SegmentStart="{Binding Start}"
+                        SegmentEnd="{Binding End}"
+                        MouseDown="OnMouseDown"
+                    />
+                </Grid>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="SegmentByKindTemplate">
+            <Border Margin="2" BorderBrush="Black"
+                 Height="20" BorderThickness="1" CornerRadius="1"
+                 >
+                <Grid Height="16">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="{Binding ControlWidth}" />
+                        <ColumnDefinition Width="{Binding EmptyColumnWidth}" />
+                    </Grid.ColumnDefinitions>
+                    <local:GcSegmentControl Background="SteelBlue"
+                  PinnedObjects="{Binding PinnedAddresses}"
+                  FreeBlocks="{Binding FreeBlocks}"
+                  SegmentStart="{Binding Start}"
+                  SegmentEnd="{Binding End}"
+                  MouseDown="OnMouseDown"
+                  />
+                </Grid>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="SegmentLayoutTemplate">
+            <Border Margin="2" BorderBrush="Black"
+                 Height="20" BorderThickness="1" CornerRadius="1"
+                 >
+                <Grid Height="16">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60" />
+                        <ColumnDefinition Width="{Binding ControlWidth}" />
+                        <ColumnDefinition Width="{Binding EmptyColumnWidth}" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="{Binding KindAndIndex}" Foreground="{Binding Path=Kind, Converter={StaticResource GCSegmentKindToBrushConverter}}" Margin="0,0,5,0"/>
+                    <local:GcSegmentControl Grid.Column="1" Background="SteelBlue"
+                        PinnedObjects="{Binding PinnedAddresses}"
+                        FreeBlocks="{Binding FreeBlocks}"
+                        SegmentStart="{Binding Start}"
+                        SegmentEnd="{Binding End}"
+                        MouseDown="OnMouseDown"
+                    />
+                </Grid>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="HeapTemplate">
+            <Grid Margin="0, 5, 0, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="5" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" FontSize="16" FontWeight="DemiBold" Text="{Binding Name}"/>
+                <ItemsControl Grid.Row="1" Margin="20, 0, 0, 0" ItemsSource="{Binding Segments}" ItemTemplate="{StaticResource HeapSegmentTemplate}"/>
+                <Rectangle Grid.Row="2" Margin="20, -2, 0, 5" Fill="FloralWhite" />
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Load a .dmp file"
+                       VerticalAlignment="Center" Click="OnOpenDumpFile"
+                       />
+            <TextBox Grid.Column="1" x:Name="tbDumpFilename" Margin="3,0,3,0"
+                     Background="Black"
+                     Foreground="White"
+                     MouseDoubleClick="OnDumpFilenameDoubleClick"/>
+        </Grid>
+        <DockPanel Grid.Row="1" >
+            <TabControl TabStripPlacement="Bottom">
+                <TabItem Header="Kinds" >
+                    <ScrollViewer Background="Black">
+                        <StackPanel>
+                            <Expander x:Name="xpPoh" Background="Black" Foreground="White" FontSize="16" Header="POH" IsExpanded="True">
+                                <ItemsControl x:Name="icPoh" ItemTemplate="{StaticResource SegmentByKindTemplate}" />
+                            </Expander>
+                            <Expander x:Name="xpGen2" Background="Black" Foreground="White" FontSize="16" Header="Gen2" IsExpanded="True">
+                                <ItemsControl x:Name="icGen2" ItemTemplate="{StaticResource SegmentByKindTemplate}" />
+                            </Expander>
+                            <Expander x:Name="xpGen1" Background="Black" Foreground="White" FontSize="16" Header="Gen1" IsExpanded="True">
+                                <ItemsControl x:Name="icGen1" ItemTemplate="{StaticResource SegmentByKindTemplate}" />
+                            </Expander>
+                            <Expander x:Name="xpGen0" Background="Black" Foreground="White" FontSize="16" Header="Gen0" IsExpanded="True">
+                                <ItemsControl x:Name="icGen0" ItemTemplate="{StaticResource SegmentByKindTemplate}" />
+                            </Expander>
+                            <Expander x:Name="xpLoh" Background="Black" Foreground="White" FontSize="16" Header="LOH" IsExpanded="True">
+                                <ItemsControl x:Name="icLoh" ItemTemplate="{StaticResource SegmentByKindTemplate}" />
+                            </Expander>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem Header="Heaps" IsEnabled="True">
+                    <ScrollViewer Background="Black">
+                        <ItemsControl x:Name="icHeaps" Background="Black" Foreground="White" ItemTemplate="{StaticResource HeapTemplate}"/>
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem Header="Layout"  IsEnabled="True">
+                    <ListBox x:Name="lbSegments" Background="Black" Foreground="White"
+                             HorizontalContentAlignment="Stretch"
+                             ItemTemplate="{StaticResource SegmentLayoutTemplate}"
+                             />
+                </TabItem>
+            </TabControl>
+        </DockPanel>
+    </Grid>
+</Window>

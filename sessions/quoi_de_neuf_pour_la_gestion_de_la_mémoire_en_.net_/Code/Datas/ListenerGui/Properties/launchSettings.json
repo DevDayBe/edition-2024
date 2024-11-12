@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ListenerGui": {
+      "commandName": "Project"
+      //"commandLineArgs": "C:\\github\\chrisnas\\UpdateConference2023\\Code\\Demos\\Datas\\Datas.json"
+    }
+  }
+}

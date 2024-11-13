@@ -17,7 +17,7 @@ We would like to extend our heartfelt thanks to all the speakers and attendees w
 1. [Let's Talk About Web Components](sessions/lets_talk_about_web_components/README.md)
 1. [Playwright : La pièce maîtresse du spectacle automatisé](sessions/playwright___la_pièce_maîtresse_du_spectacle_automatisé/README.md)
 1. [Guide de survie pour créer son authentification à l’intention des développeurs](sessions/guide_de_survie_pour_créer_son_authentification_à_l’intention_des_développeurs/README.md)
-1. [Comprendre la Mémoire : du matériel à l’utilisation en C#](sessions/comprendre_la_mémoire___du_matériel_à_l’utilisation_en_c#/README.md)
+1. 📁 [Comprendre la Mémoire : du matériel à l’utilisation en C#](sessions/comprendre_la_mémoire___du_matériel_à_l’utilisation_en_c#/README.md)
 1. [Vers une Métrique DDD Continue : Dépasser les Limites de l'Event Storming](sessions/vers_une_métrique_ddd_continue___dépasser_les_limites_de_levent_storming/README.md)
 1. [IA Generative,  de votre machine locale à Azure avec LangChain.js](sessions/ia_generative__de_votre_machine_locale_à_azure_avec_langchain.js/README.md)
 1. [Design, Build, Run Sustainable APIs and Softwares](sessions/design_build_run_sustainable_apis_and_softwares/README.md)
